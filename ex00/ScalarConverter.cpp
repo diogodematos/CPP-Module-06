@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:33:16 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/24 16:16:30 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:45:08 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 ScalarConverter::ScalarConverter()
 {
-    std::cout << "Default Constructor Created" << std::endl;
+    //std::cout << "Default Constructor Created" << std::endl;
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter &copy)
 {
     (void)copy;
-    std::cout << "Copy Constructor Created" << std::endl;
+    //std::cout << "Copy Constructor Created" << std::endl;
 }
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &converter)
 {
-    std::cout << "Copy Operator Called" << std::endl;
+    //std::cout << "Copy Operator Called" << std::endl;
     (void)&converter;
     return *this;
 }
@@ -38,53 +38,46 @@ const char* ScalarConverter::ErrorInput::what() const throw()
     return "Wrong Input!";
 }
 
-char ScalarConverter::ConvChar(int i)
-{
-    char c;
-    c = static_cast<char>(i);
-    return c;
-}
-
-int countDigits(int number) {
-    int count = 0;
-    if (number == 0) {
-        return 1;
-    }
-    if (number < 0) {
-        number = -number;
-    }
-    while (number != 0) {
-        number /= 10;
-        count++;
-    }
-    return count;
-}
-
 void CheckInput(std::string conv)
 {
-    int c;
-    std::istringstream iss(conv);
-    iss >> c;
-    int d = countDigits(c);
-    std::size_t convsize = conv.size();
-    if (d != static_cast<int>(convsize))
+    double d;
+    char *res;
+    const char *co = conv.c_str();
+    d = strtod(co, &res);
+    if ((unsigned)strlen(res) > 1 || ((unsigned)strlen(res) == 1 && res[0] != 'f'))
     {
-        throw ErrorInput();
+        throw ScalarConverter::ErrorInput(); 
     }
-    return ;
+    else if (d == 0 && (unsigned)strlen(res) == 1)
+    {
+        std::cout << "char: " << static_cast<char>(res[0]) << std::endl; 
+        std::cout << "int: " << static_cast<int>(res[0]) << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(res[0]) << std::endl;
+        std::cout << "float: " << static_cast<float>(res[0]) << 'f' << std::endl;
+    }
+    else if (d < 32 && (unsigned)strlen(res) == 0)
+    {
+        std::cout << "char: " << static_cast<char>(res[0]) << std::endl; 
+        std::cout << "int: " << static_cast<int>(res[0]) << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(res[0]) << std::endl;
+        std::cout << "float: " << static_cast<float>(res[0]) << 'f' << std::endl;
+    }
+    else
+    {
+    std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+    std::cout << "float: " << static_cast<float>(d) << 'f' << std::endl;
+    std::cout << "int: " << static_cast<int>(d) << std::endl;
+    std::cout << "char: " << static_cast<char>(d) << std::endl;
+    }
+    
+    
 }
 
-void ScalarConverter::Converter(const std::string conv)
+void ScalarConverter::Converter(std::string conv)
 {
     try
     {
         CheckInput(conv);
-        int c;
-        std::istringstream iss(conv);
-        iss >> c;
-        std::cout << c << std::endl;
-        char a = ConvChar(c);
-        std::cout << a << std::endl;
     }
     catch(const std::exception &e)
     {
