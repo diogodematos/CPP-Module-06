@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:33:16 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/28 12:09:05 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/28 15:50:16 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,14 @@ void CheckInput(std::string conv)
     char *res;
     const char *co = conv.c_str();
     d = strtod(co, &res);
-    if ((unsigned)strlen(res) > 1 || ((unsigned)strlen(res) == 1 && res[0] != 'f'))
+    if (!strcmp(co, "nan") || !strcmp(co, "nanf"))
+    {
+        std::cout << "char: Impossible" << std::endl; 
+        std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+        std::cout << "float: " << static_cast<float>(d) << 'f' << std::endl;
+        std::cout << "int: Impossible" << std::endl;
+    }
+    else if ((unsigned)strlen(res) > 1 || ((unsigned)strlen(co) != 1 && (unsigned)strlen(res) == 1 && res[0] != 'f'))
     {
         throw ScalarConverter::ErrorInput(); 
     }
@@ -90,8 +97,6 @@ void CheckInput(std::string conv)
         std::cout << "int: " << static_cast<int>(d) << std::endl;
         std::cout << "char: " << static_cast<char>(d) << std::endl;
     }
-    
-    
 }
 
 void ScalarConverter::Converter(std::string conv)
