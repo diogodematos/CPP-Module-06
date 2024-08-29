@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:15:47 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/27 16:33:47 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/29 12:28:15 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <stdlib.h>
+//#include <stdlib.h>
 #include <cstdlib>
 #include <cstring>
 #include <iomanip>
@@ -29,9 +29,6 @@ class ScalarConverter
         ScalarConverter(const ScalarConverter &copy);
         ScalarConverter &operator=(const ScalarConverter &converter);
         ~ScalarConverter();
-        
-    protected:
-        char _c;
 
     public:
     

@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 14:33:16 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/28 15:50:16 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/29 12:44:37 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void CheckInput(std::string conv)
     else if ((d < -2147483648 || d > 2147483647))
     {
         std::cout << "char: Impossible" << std::endl; 
-        std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+        std::cout << "double: "  << d << std::endl;
         std::cout << "float: " << static_cast<float>(d) << 'f' << std::endl;
         std::cout << "int: Impossible" << std::endl;
     }

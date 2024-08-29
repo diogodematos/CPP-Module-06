@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serilazer.hpp                                      :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:01:39 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/28 16:21:22 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:13:26 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALAZE_H
-# define SERIALAZE_H
+#ifndef SERIALIZER_H
+# define SERIALIZER_H
 
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 #include "Data.h"
 
-class Serialaze
+class Serialazer
 {
     private:
 
-        Serialaze();
-        Serialaze(const Serialaze &copy);
-        Serialaze &operator=(const Serialaze &serialaze);
-        ~Serialaze();
+        Serialazer();
+        Serialazer(const Serialazer &copy);
+        Serialazer &operator=(const Serialazer &serialaze);
+        ~Serialazer();
 
     public:
 
-        uintptr_t serialize(Data* ptr);
-        Data* deserialize(uintptr_t raw);
+        static uintptr_t serialize(Data* ptr);
+        static Data* deserialize(uintptr_t raw);
 };
 
 

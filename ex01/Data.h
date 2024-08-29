@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:21:30 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/28 16:22:21 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:02:33 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 struct Data
 {
-    int value;
+    std::string value;
 };
 
 #endif
