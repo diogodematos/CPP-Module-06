@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 17:05:35 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/29 17:11:31 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:38:51 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 
 int main()
 {
-    Base *Try = NULL;
-    Try = generate();
-    std::cout << &Try << std::endl;
-    
+    Base *Try = generate();
+    //Base *Try1 = NULL;
+    identify(Try);
+    identify(*Try);
+    // identify(Try1);
+    // identify(*Try1);
+    delete(Try);
 }
