@@ -6,7 +6,7 @@
 /*   By: dcarrilh <dcarrilh@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:51:09 by dcarrilh          #+#    #+#             */
-/*   Updated: 2024/08/30 16:41:00 by dcarrilh         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:05:03 by dcarrilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,20 @@ void identify(Base &p)
     try {
         (void)dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
+        return;
     } catch (std::exception &e) {}
 
     try {
         (void)dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
+        return;
     } catch (std::exception &e) {}
 
     try {
         (void)dynamic_cast<C&>(p);
         std::cout << "C" << std::endl;
+        return;
     } catch (std::exception &e) {}
+
+    std::cerr << "Unknown Type" << std::endl;
 }
